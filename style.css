@@ -13,6 +13,7 @@ html ,body {
 }
 
 .box {
+    box-shadow:  8px 8px  14px white;
     border: 8px solid white;
     border-radius: 50%;
     background-color: black;
@@ -31,25 +32,30 @@ html ,body {
         transform: rotate(0deg);
         border: 8px solid white;
         font-size: 16px ;
+        box-shadow:  6px 6px 12px white;
     }
     25% {
         transform: rotate(90deg);
         border: 12px solid rgb(255, 0, 0);
         font-size: 18px ;
+        box-shadow:  8px 8px 14px rgb(255, 0, 0);
     }
     50% {
         transform: rotate(180deg);
         border: 15px solid rgb(0, 0, 255);
         font-size: 20px ;
+        box-shadow:  8px 8px 14px rgb(0, 0, 255);
     }
     75% {
         transform: rotate(270deg);
         border: 18px solid rgb(0, 255 , 0);
         font-size: 22px ;
+        box-shadow:  8px 8px 14px rgb(0, 255 , 0);
     }
     100% {
         transform: rotate(360deg);
         border: 8px solid white;
+        box-shadow:  8px 8px 14px white;
     }
 }
 
@@ -63,11 +69,14 @@ button {
     border-radius: 10px;
     background-color: white;
     transform: scale(1);
-    transition: transform 1s ease-in-out, background-color 1s ease-in-out;
+    box-shadow: -8px -8px 12px white;
+
+    transition: transform 1s ease-in-out, background-color 1s ease-in-out , box-shadow 1s ease-in-out;
 }
 button:hover {
     transform: scale(2);
     background-color: rgb(140, 129, 129);
+    box-shadow: 8px 8px 12px cyan;
 }
 button a {
     text-decoration: none;
