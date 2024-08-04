@@ -4,16 +4,17 @@
     box-sizing: border-box;
 }
 
-html ,body {
+html, body {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
+    flex-direction: column;
 }
 
 .box {
-    box-shadow:  8px 8px  14px white;
+    box-shadow: 8px 8px 14px white;
     border: 8px solid white;
     border-radius: 50%;
     background-color: black;
@@ -23,40 +24,42 @@ html ,body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px ;
-    animation: Animation 5s  ease-in-out 1s infinite , starting 1s ease-in-out ;
+    font-size: 16px;
+    animation: Animation 5s ease-in-out 1s infinite, starting 1s ease-in-out;
 }
+
 @keyframes Animation {
     0% {
         transform: rotate(0deg);
         border: 8px solid white;
-        font-size: 16px ;
-        box-shadow:  6px 6px 12px white;
+        font-size: 16px;
+        box-shadow: 6px 6px 12px white;
     }
     25% {
         transform: rotate(90deg);
         border: 12px solid rgb(255, 0, 0);
-        font-size: 18px ;
-        box-shadow:  8px 8px 14px rgb(255, 0, 0);
+        font-size: 18px;
+        box-shadow: 8px 8px 14px rgb(255, 0, 0);
     }
     50% {
         transform: rotate(180deg);
         border: 15px solid rgb(0, 0, 255);
-        font-size: 20px ;
-        box-shadow:  8px 8px 14px rgb(0, 0, 255);
+        font-size: 20px;
+        box-shadow: 8px 8px 14px rgb(0, 0, 255);
     }
     75% {
         transform: rotate(270deg);
-        border: 18px solid rgb(0, 255 , 0);
-        font-size: 22px ;
-        box-shadow:  8px 8px 14px rgb(0, 255 , 0);
+        border: 18px solid rgb(0, 255, 0);
+        font-size: 22px;
+        box-shadow: 8px 8px 14px rgb(0, 255, 0);
     }
     100% {
         transform: rotate(360deg);
         border: 8px solid white;
-        box-shadow:  8px 8px 14px white;
+        box-shadow: 8px 8px 14px white;
     }
 }
+
 @keyframes starting {
     from {
         transform: translateX(-500px);
@@ -65,22 +68,50 @@ html ,body {
         transform: translateX(0px);
     }
 }
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: rgb(99, 64, 64);
+    }
+    50% {
+        background-color: darkgray;
+    }
+    100% {
+        background-color: rgb(99, 64, 64);
+    }
+}
+
 .p {
     text-align: center;
+    animation: pulsate 3s infinite ;
 }
+
 button {
-    margin-left: 150px;
+    margin-top: 30px;
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
     background-color: white;
     transform: scale(1);
-    box-shadow: -8px -8px 12px white;
-    font-weight: 400;
-    animation: end 1s ease-in-out;
-    transition: transform 1s ease-in-out, background-color 1s ease-in-out , box-shadow 1s ease-in-out ,font-weight 1s ease-in-out;
+    transform: perspective(1) scaleZ(1) rotateY(60deg);
+    box-shadow: -8px -8px 12px cyan;
+    animation: end 1s ease-in-out, colorChange 5s infinite;
+    transition: transform 1.5s ease-in-out, background-color 1s ease-in-out, box-shadow 1s ease-in-out;
 }
-@keyframes end{
+
+@keyframes end {
     from {
         transform: translateX(350px);
     }
@@ -88,13 +119,21 @@ button {
         transform: translateX(0);
     }
 }
+
 button:hover {
     transform: scale(2);
     background-color: rgb(172, 171, 171);
     box-shadow: 8px 8px 12px cyan;
-    font-weight: 600;
+    transform: perspective(500px) scaleZ(2) rotateY(-25deg);
 }
+
 button a {
     text-decoration: none;
     color: black;
+    font-size: 18px;
+    transition: font-size 1s ease-in-out;
+}
+
+button a:hover {
+    font-size: 22px;
 }
