@@ -24,10 +24,9 @@ html ,body {
     justify-content: center;
     align-items: center;
     font-size: 16px ;
-    animation: boxAnimation 3s ease-in-out infinite;
+    animation: Animation 5s  ease-in-out 1s infinite , starting 1s ease-in-out ;
 }
-
-@keyframes boxAnimation {
+@keyframes Animation {
     0% {
         transform: rotate(0deg);
         border: 8px solid white;
@@ -58,25 +57,42 @@ html ,body {
         box-shadow:  8px 8px 14px white;
     }
 }
-
+@keyframes starting {
+    from {
+        transform: translateX(-500px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
 .p {
     text-align: center;
 }
 button {
-    margin-left: 100px;
+    margin-left: 150px;
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
     background-color: white;
     transform: scale(1);
     box-shadow: -8px -8px 12px white;
-
-    transition: transform 1s ease-in-out, background-color 1s ease-in-out , box-shadow 1s ease-in-out;
+    font-weight: 400;
+    animation: end 1s ease-in-out;
+    transition: transform 1s ease-in-out, background-color 1s ease-in-out , box-shadow 1s ease-in-out ,font-weight 1s ease-in-out;
+}
+@keyframes end{
+    from {
+        transform: translateX(350px);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 button:hover {
     transform: scale(2);
-    background-color: rgb(140, 129, 129);
+    background-color: rgb(172, 171, 171);
     box-shadow: 8px 8px 12px cyan;
+    font-weight: 600;
 }
 button a {
     text-decoration: none;
